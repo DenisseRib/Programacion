@@ -1,0 +1,26 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class switch2 {
+
+	public static void main(String[] args) {
+		System.out.println("Introduce un dia de la semana");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    String Mes = br.readLine();
+	    int numero =  Integer.parseInt(Mes);
+	    switch (numero)
+	    { case 12, 1 , 2:System.out.println("Es Invierno");
+	    break;
+	    case 3, 4 ,5 :System.out.println("Es Primavera");
+	    break;
+	    case 6,7,8:System.out.println("Es Verano");
+	    break;
+	    case 9,10,11:System.out.println("Es Otoño");
+	    break;
+	    default:System.out.println("ERROR");
+	    break;
+		// TODO Auto-generated method stub
+
+	}
+
+}

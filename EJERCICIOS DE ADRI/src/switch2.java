@@ -1,0 +1,25 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class switch2 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	   
+	    int contador=1;
+	    double suma=0;
+	  while (contador<=5)
+		  {System.out.println("Introduce un numero");
+		  int N = Integer.parseInt(br.readLine());
+		  suma = suma + N;
+		  contador= contador + 1; 
+		 
+	  }
+	  double media = suma/5;
+		 System.out.println("la media es" + media);}
+	  }
+		  
+		// TODO Auto-generated method stub
+
+	
