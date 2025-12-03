@@ -1,0 +1,177 @@
+package arraysEjercicios;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class array41 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		String[] alumnos = new String [3];
+		String[] asignatura = new String[3];
+		double [][] notas = new double [3][3];
+		boolean salir = false;
+		while (!salir) {
+			System.out.println("1. Introducir nombres de alumnos y asignaturas");
+			System.out.println("2. Introducir todas las notas (validar 0-10)");
+			System.out.println(" 3. Mostrar tabla completa (nombres de alumnos en filas, asignaturas en columnas)");
+			System.out.println("4. Calcular y mostrar media de cada alumno con su nombre");
+			System.out.println(" 5. Buscar alumno por nombre y mostrar todas sus notas");
+			System.out.println(" 6. Mostrar la asignatura con menor media");
+			System.out.println(" 7. Contar alumnos que tienen todas las asignaturas aprobadas");
+			System.out.println(" 8. Mostrar qué alumnos suspendieron una asignatura específica (pedir asignatura)");
+			System.out.println(" 9. Modificar nota (pedir nombre de alumno y asignatura)");
+			System.out.println("10. Salir");
+			int opcion = leerOpcion("Introduce una opción");
+			switch(opcion) {
+			case 1 : opcion1(alumnos,asignatura);
+				break;
+			case 2 : opcion2(notas);
+				break;
+			case 3 : opcion3(alumnos,asignatura,notas);
+				break;
+			case 4 : opcion4(alumnos, notas);
+				break;
+			case 5 : opcion5(alumnos, notas, asignatura);
+				break;
+			case 6 : 
+				break;
+			case 7 : 
+				break;
+			case 8 : 
+				break;
+			case 9 : 
+				break;
+			case 10 : 
+				break;
+			}
+			 
+			
+			 
+			
+			
+			
+			
+			
+			 
+		}
+		// TODO Auto-generated method stub
+
+	}
+static int leerint(String mensaje) throws NumberFormatException, IOException {
+	BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
+	System.out.println(mensaje);
+	int num = Integer.parseInt(br.readLine());
+	return num;
+}
+
+public static void opcion1( String [] alumnos,String[] asignatura) throws IOException {
+	String nombre;
+	String nomAsignatura;
+	for(int f = 0; f<alumnos.length; f++) {
+       nombre = leerstring("Introduce nombre de " + (f+1));
+       alumnos[f] += nombre;
+		}
+	for (int c = 0; c<asignatura.length; c++) {
+		 nomAsignatura= leerstring("Introduce nombre asignatura" + (c+1));
+		 asignatura[c] += nomAsignatura ;}
+	
+	
+}
+public static void opcion2(double[][] notas) throws IOException {
+	for(int f =0 ; f<notas.length ; f++) {
+		System.out.println("Notas del alumno " + f);
+for (int c =0 ; c<notas[f].length; c++) {
+			
+			notas[f][c] = leerNota("Introduce la nota");
+		}
+	}
+		System.out.println("Todas las notas han sido metidas");
+		
+}
+public static void opcion3 (String[] alumnos, String [] asignatura ,double[][] notas ) {
+	for (int f =0; f<asignatura.length; f++) {
+		System.out.println("asignaturas: " + asignatura[f] + "\t\t");}
+		for (int f = 0 ; f<notas.length ; f++) {
+		System.out.println("alumno: " + alumnos[f] + "\t\t");
+		for (int c = 0; c<notas[f].length ; c++) {
+			System.out.println("notas " + notas[f][c] + "\t\t");
+		}
+		System.out.println();
+		}
+	}
+public static void opcion4 (String[]alumnos, double[][] notas) {
+	System.out.println("Media de cada alumno");
+	for (int f = 0; f<notas.length; f++) {
+		double media =0;
+		for (int c =0; c<notas[f].length; c++) {
+			media+=notas[f][c];
+		}
+		media/= notas[f].length;
+		System.out.println("El alumno " + alumnos[f] + media );
+	}
+		
+}
+public static void opcion5(String [] alumnos,double[][] notas, String[] asignatura ) throws IOException   {
+	boolean encontrado = false;
+	String nombre = leerstring("Introduce nombre a buscar");
+	for( int f = 0 ; f<alumnos.length; f++) {
+		if (nombre.equalsIgnoreCase(nombre) && !encontrado) {
+			for ( int j = 0 ; j< asignatura.length ; j++) {
+			System.out.println("Notas alumno" + asignatura[j] + notas[f][j]);
+			}
+			encontrado = true; }
+	
+	if (!encontrado) {
+		System.out.println("Nombre no existe");
+	}}
+}
+public static String leerstring (String mensaje) throws IOException {
+	
+	BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
+
+System.out.println(mensaje);
+String palabra = br.readLine();
+return palabra;
+
+}
+public static Double leerNota(String mensaje) throws IOException {
+	double nota = -1;
+	boolean valido = false;
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	while(!valido) {
+		try {
+			System.out.println(mensaje);
+			nota = Double.parseDouble(br.readLine());
+			if(nota>0 && nota<=10) {
+				valido = true;
+			}
+			else {
+				System.out.println("Nota inválida");
+			}}
+			catch (NumberFormatException e) {
+				System.out.println("Formato no válido");
+			
+			}
+	}
+	return  nota;
+	}
+public static int leerOpcion (String mensaje) throws IOException {
+	int numero = -1;
+	boolean valido = false;
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	while(!valido) {
+		try {
+			numero = Integer.parseInt(br.readLine());
+			valido = true;
+		}
+		catch(NumberFormatException e) {
+			System.out.println("Debes introducir un numero entero");
+		}
+		
+		
+	}
+	return numero;
+}
+}
