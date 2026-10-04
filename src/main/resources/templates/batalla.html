@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/batalla.css}">
+</head>
+<body>
+<div class="header-batalla">
+    <h1> Arena de Combate</h1>
+    <p>Rondas disputadas: <strong th:text="${contadorRondas}">0</strong></p>
+    <div class="resultado-banner" th:text="${resultado}">Resultado</div>
+</div>
+
+<div class="arena">
+    <!-- Luchador 1 -->
+    <div class="tarjeta-luchador">
+        <h2 th:text="${luchador1.nombre}">Luchador 1</h2>
+        <p>Ataque base: <strong th:text="${luchador1.ataque}">0</strong></p>
+        <p>Vida restante: <strong th:text="${luchador1.vida}">0</strong> / 100</p>
+
+        <div class="barra-vida-contenedor">
+            <div class="barra-vida"
+                 th:classappend="${luchador1.vida <= 20} ? 'critica' : ''"
+                 th:style="'width: ' + ${luchador1.vida} + '%;'">
+            </div>
+        </div>
+    </div>
+
+    <!-- Luchador 2 -->
+    <div class="tarjeta-luchador">
+        <h2 th:text="${luchador2.nombre}">Luchador 2</h2>
+        <p>Ataque base: <strong th:text="${luchador2.ataque}">0</strong></p>
+        <p>Vida restante: <strong th:text="${luchador2.vida}">0</strong> / 100</p>
+
+        <div class="barra-vida-contenedor">
+            <div class="barra-vida"
+                 th:classappend="${luchador2.vida <= 20} ? 'critica' : ''"
+                 th:style="'width: ' + ${luchador2.vida} + '%;'">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Botón para simular una nueva pelea -->
+<a href="/batalla" class="btn-reintentar">⚡ ¡Otra Batalla!</a>
+
+</body>
+</html>

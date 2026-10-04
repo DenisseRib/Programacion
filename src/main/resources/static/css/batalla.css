@@ -1,0 +1,131 @@
+/* Variables para cambiar colores fácilmente */
+:root {
+    --bg-color: #0f0f13;
+    --card-bg: #1e1e26;
+    --accent-gold: #ffcc00;
+    --hp-green: #2ecc71;
+    --hp-red: #e74c3c;
+    --text-color: #ffffff;
+    --border-color: #3a3a4c;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Encabezado */
+.header-batalla {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header-batalla h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+    margin-bottom: 15px;
+}
+
+.resultado-banner {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: #00e676;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 2px solid #00e676;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* Arena y Tarjetas */
+.arena {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tarjeta-luchador {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease;
+}
+
+.tarjeta-luchador:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
+}
+
+.tarjeta-luchador h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    letter-spacing: 1px;
+}
+
+/* Barras de vida */
+.barra-vida-contenedor {
+    background-color: #111;
+    border: 2px solid #444;
+    border-radius: 10px;
+    height: 24px;
+    width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.barra-vida {
+    background: linear-gradient(90deg, #27ae60, var(--hp-green));
+    height: 100%;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cambio de color cuando la vida es muy baja */
+.barra-vida.critica {
+    background: linear-gradient(90deg, #c0392b, var(--hp-red));
+}
+
+/* Botón de reinicio */
+.btn-reintentar {
+    margin-top: 40px;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    background-color: #e67e22;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 0 #d35400;
+    transition: all 0.1s ease;
+}
+
+.btn-reintentar:hover {
+    background-color: #f39c12;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #d35400;
+}
+
+.btn-reintentar:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #d35400;
+}
